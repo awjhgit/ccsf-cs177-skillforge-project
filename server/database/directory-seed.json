@@ -1,0 +1,191 @@
+[
+  {
+    "id": -1,
+    "name": "Thomas Neo Anderson",
+    "title": "Software Engineer",
+    "department": "Engineering",
+    "skills": [
+      "Python",
+      "Django",
+      "REST APIs",
+      "AWS"
+    ],
+    "description": "5+ years building web applications with Python and Django. Experienced in cloud deployment and API integrations.",
+    "years": 5,
+    "certifications": [
+      "AWS Certified"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/"
+      }
+    ]
+  },
+  {
+    "id": -2,
+    "name": "Carrie Trinity",
+    "title": "Data Engineer",
+    "department": "Engineering",
+    "skills": [
+      "Python",
+      "SQL",
+      "Data Pipelines",
+      "Snowflake"
+    ],
+    "description": "Specializes in data engineering with Python and SQL. Builds scalable data pipelines and ETL processes.",
+    "years": 3,
+    "certifications": [
+      "Snowflake Certified"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": -3,
+    "name": "Laurence Morpheus",
+    "title": "Machine Learning Engineer",
+    "department": "Engineering",
+    "skills": [
+      "Python",
+      "Machine Learning",
+      "TensorFlow",
+      "PyTorch"
+    ],
+    "description": "Experience in machine learning and deep learning. Builds and deploys ML models in production environments.",
+    "years": 4,
+    "certifications": [
+      "TensorFlow Certified"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/"
+      }
+    ]
+  },
+  {
+    "id": -4,
+    "name": "Hugo Agent Smith",
+    "title": "Cloud Solutions Architect",
+    "department": "IT",
+    "skills": [
+      "Python",
+      "Kubernetes",
+      "Docker",
+      "AWS"
+    ],
+    "description": "Designs cloud solutions using AWS and Kubernetes, with a strong background in container orchestration.",
+    "years": 6,
+    "certifications": [
+      "AWS Certified"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": -5,
+    "name": "Monica Persephone",
+    "title": "Full Stack Developer",
+    "department": "Engineering",
+    "skills": [
+      "Python",
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "description": "Full stack developer using Python and React to build scalable web applications and APIs.",
+    "years": 3,
+    "certifications": [
+      "React Certified"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/"
+      }
+    ]
+  },
+  {
+    "id": -6,
+    "name": "Randall Keymaker",
+    "title": "DevOps Engineer",
+    "department": "IT",
+    "skills": [
+      "Docker",
+      "Kubernetes",
+      "Linux",
+      "CI/CD"
+    ],
+    "description": "Experienced in DevOps, infrastructure automation, Linux systems, and containerization.",
+    "years": 4,
+    "certifications": [
+      "CKA Certified"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": -7,
+    "name": "Daniel Agent Johnson",
+    "title": "Project Manager",
+    "department": "Product",
+    "skills": [
+      "Agile",
+      "Scrum",
+      "Jira",
+      "Project Management"
+    ],
+    "description": "Leads cross-functional projects, facilitates Agile ceremonies, and improves delivery processes.",
+    "years": 8,
+    "certifications": [
+      "PMP"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": -8,
+    "name": "Helmut Architect",
+    "title": "Security Engineer",
+    "department": "IT",
+    "skills": [
+      "Cybersecurity",
+      "Cloud Security",
+      "Linux",
+      "AWS"
+    ],
+    "description": "Works on cloud security, access controls, vulnerability management, and infrastructure protection.",
+    "years": 7,
+    "certifications": [
+      "AWS Certified",
+      "Security+"
+    ],
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  }
+]

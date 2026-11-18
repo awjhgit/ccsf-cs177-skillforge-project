@@ -1,0 +1,14 @@
+{
+  "name": "@skillforge/server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "db:migrate:postgres": "node database/migrate-postgres.mjs",
+    "db:setup:postgres": "node database/setup-postgres.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "pg": "^8.23.1"
+  }
+}

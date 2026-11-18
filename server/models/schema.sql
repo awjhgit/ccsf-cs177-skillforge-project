@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS users (
+  id INTEGER PRIMARY KEY, name TEXT NOT NULL, email TEXT UNIQUE NOT NULL,
+  department TEXT NOT NULL, role TEXT NOT NULL, status TEXT NOT NULL,
+  salt TEXT NOT NULL, password_hash TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS profiles (
+  user_id INTEGER PRIMARY KEY REFERENCES users(id), details TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS skills (
+  id INTEGER PRIMARY KEY, key TEXT NOT NULL UNIQUE
+);
+CREATE TABLE IF NOT EXISTS profile_skills (
+  user_id INTEGER NOT NULL REFERENCES profiles(user_id) ON DELETE CASCADE,
+  skill_id INTEGER NOT NULL REFERENCES skills(id),
+  label TEXT NOT NULL,
+  position INTEGER NOT NULL,
+  PRIMARY KEY (user_id, skill_id)
+);
+CREATE INDEX IF NOT EXISTS profile_skills_by_skill ON profile_skills(skill_id);
+CREATE TABLE IF NOT EXISTS sample_profiles (
+  id INTEGER PRIMARY KEY, details TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS recognition (
+  id INTEGER PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id),
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  awarded_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS recognition_by_user ON recognition(user_id, awarded_at);
+CREATE TABLE IF NOT EXISTS sessions (
+  token_hash TEXT PRIMARY KEY, user_id INTEGER NOT NULL REFERENCES users(id), expires INTEGER NOT NULL
+);
