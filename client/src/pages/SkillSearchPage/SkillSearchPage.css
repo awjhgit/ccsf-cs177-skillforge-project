@@ -64,18 +64,7 @@
   min-height: 100vh;
 }
 
-.skills-directory .avatar {
-  flex: 0 0 auto;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  color: #1b579f;
-  background: #e4efff;
-  font-size: 14px;
-  font-weight: 750;
-}
+
 
 .skills-directory .page {
   max-width: 1440px;
@@ -318,115 +307,6 @@
   gap: 16px;
 }
 
-.skills-directory .profile-card {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  padding: 19px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  box-shadow: 0 2px 5px rgb(20 45 80 / 3%);
-  transition:
-    border-color 0.15s ease,
-    box-shadow 0.15s ease;
-}
-
-.skills-directory .profile-card:hover {
-  border-color: #b5ccef;
-  box-shadow: 0 5px 18px rgb(20 45 80 / 7%);
-}
-
-.skills-directory .profile-card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.skills-directory .identity {
-  min-width: 0;
-}
-
-.skills-directory .identity h3 {
-  overflow-wrap: anywhere;
-  margin: 0 0 5px;
-  color: #193353;
-  font-size: 15px;
-}
-
-.skills-directory .identity p {
-  margin: 0 0 5px;
-  color: #62738b;
-  font-size: 12px;
-}
-
-.skills-directory .department-tag {
-  color: #53739f;
-  font-size: 11px;
-}
-
-.skills-directory .skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin: 17px 0 13px;
-}
-
-.skills-directory .skill-tag {
-  padding: 5px 9px;
-  border-radius: 20px;
-  color: #42648f;
-  background: #eef4fc;
-  font-size: 11px;
-  line-height: 1.3;
-}
-
-.skills-directory .experience-description {
-  flex: 1;
-  margin: 0 0 16px;
-  color: #53657e;
-  font-size: 12px;
-  line-height: 1.7;
-}
-
-.skills-directory .profile-details {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 14px;
-  color: #60748f;
-  font-size: 11px;
-}
-
-.skills-directory .profile-details strong {
-  color: #27476d;
-}
-
-.skills-directory .certification {
-  overflow-wrap: anywhere;
-}
-
-.skills-directory .card-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding-top: 12px;
-  border-top: 1px solid #edf0f5;
-}
-
-.skills-directory .external-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.skills-directory .external-links a {
-  font-size: 12px;
-  font-weight: 600;
-}
 
 .skills-directory .empty-state {
   padding: 60px 20px;

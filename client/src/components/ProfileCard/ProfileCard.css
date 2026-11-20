@@ -1,0 +1,146 @@
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 19px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgb(20 45 80 / 3%);
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.profile-card:hover {
+    border-color: #b5ccef;
+    box-shadow: 0 5px 18px rgb(20 45 80 / 7%);
+}
+
+.profile-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.avatar {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  color: #1b579f;
+  background: #e4efff;
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.identity {
+  min-width: 0;
+}
+
+.identity h3 {
+  overflow-wrap: anywhere;
+  margin: 0 0 5px;
+  color: #193353;
+  font-size: 15px;
+}
+
+.identity p {
+  margin: 0 0 5px;
+  color: #62738b;
+  font-size: 12px;
+}
+
+.department-tag {
+  color: #53739f;
+  font-size: 11px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 17px 0 13px;
+}
+
+.skill-tag {
+  padding: 5px 9px;
+  border-radius: 20px;
+  color: #42648f;
+  background: #eef4fc;
+  font-size: 11px;
+  line-height: 1.3;
+}
+
+.experience-description {
+  flex: 1;
+  margin: 0 0 16px;
+  color: #53657e;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  color: #60748f;
+  font-size: 11px;
+}
+
+.profile-details strong {
+  color: #27476d;
+}
+
+.certification {
+  overflow-wrap: anywhere;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid #edf0f5;
+}
+
+.external-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.external-links a {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* the following were also in SkillSearchPage */
+.profile-card .bt {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 17px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background 0.15s ease;
+}
+
+.profile-card .bt {
+  color: var(--blue);
+  background: white;
+  border-color: #b9ccec;
+}
+
+.profile-card .bt:hover {
+  background: #f0f6ff;
+}

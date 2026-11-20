@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import ProfileView from "../../components/ProfileView/ProfileView";
+import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { User } from "../../types/user";
 import "./SkillSearchPage.css";
@@ -403,73 +404,7 @@ export default function SkillSearchPage({
             ) : profilesError ? null : results.length > 0 ? (
               <div className="profile-grid">
                 {results.map((employee) => (
-                  <article className="profile-card" key={employee.id}>
-                    <div className="profile-card-header">
-                      <div className="avatar">
-                        {employee.name
-                          .split(" ")
-                          .map((part) => part[0])
-                          .join("")}
-                      </div>
-                      <div className="identity">
-                        <h3>{employee.name}</h3>
-                        <p>{employee.title}</p>
-                        <span className="department-tag">
-                          {employee.department}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="skill-tags">
-                      {employee.skills.map((skill) => (
-                        <span className="skill-tag" key={skill}>
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    <p className="experience-description">
-                      {employee.description}
-                    </p>
-
-                    <div className="profile-details">
-                      <span>
-                        <strong>{employee.years} yrs</strong> experience
-                      </span>
-                      {employee.certifications.length > 0 && (
-                        <span
-                          className="certification"
-                          title={employee.certifications.join(", ")}
-                        >
-                          ✧ {employee.certifications[0]}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="card-footer">
-                      <div className="external-links">
-                        {employee.links.map((link, index) => (
-                          <a
-                            href={link.url}
-                            key={index}
-                            target="_blank"
-                            rel="noreferrer"
-                            aria-label={`${employee.name}: ${link.label}`}
-                            title={link.label}
-                          >
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-
-                      <button
-                        className="secondary-button"
-                        onClick={() => setSelectedEmployee(employee)}
-                      >
-                        View Profile
-                      </button>
-                    </div>
-                  </article>
+                  <ProfileCard employee={employee} setSelectedEmployee={setSelectedEmployee}/>
                 ))}
               </div>
             ) : (
