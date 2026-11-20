@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header"
 import { api, type DirectoryProfile } from "../../services/api";
 import type { User } from "../../types/user";
 import "./Directory.css";
@@ -110,7 +110,7 @@ export default function SkillSearchPage({
     null,
   );
 
-  const [loggingOut, setLoggingOut] = useState(false);
+
   const [logoutError, setLogoutError] = useState("");
   const profileDialog = useRef<HTMLDialogElement>(null);
 
@@ -121,19 +121,6 @@ export default function SkillSearchPage({
   function closeProfile() {
     profileDialog.current?.close();
     setSelectedEmployee(null);
-  }
-
-  async function handleLogout() {
-    if (loggingOut) return;
-    setLoggingOut(true);
-    setLogoutError("");
-    try {
-      await onLogout();
-    } catch {
-      setLogoutError("Could not log out. Please try again.");
-    } finally {
-      setLoggingOut(false);
-    }
   }
 
   // Update one filter while preserving the others.
@@ -222,48 +209,7 @@ export default function SkillSearchPage({
 
   return (
     <div className="skills-directory">
-      <header className="topbar">
-        <Link className="brand" to="/directory" aria-label="Skill Forge home">
-          <span className="brand-icon">✳</span>
-          Skill Forge
-        </Link>
-
-        <nav className="navigation" aria-label="Main navigation">
-          <Link className="active" to="/directory" aria-current="page">
-            Directory
-          </Link>
-          <Link to="/profile">My Profile</Link>
-          {currentUser.role === "Admin" && (
-            <Link to="/admin">Account Management</Link>
-          )}
-          <button disabled title="Coming soon">
-            My Connections
-          </button>
-          <button disabled title="Coming soon">
-            Rewards
-          </button>
-          <button disabled title="Coming soon">
-            Analytics
-          </button>
-        </nav>
-
-        <div className="account">
-          <span className="avatar initials" aria-hidden="true">
-            {currentUser.name
-              .split(" ")
-              .map((part) => part[0])
-              .join("")}
-          </span>
-          <span>{currentUser.name}</span>
-          <button
-            className="secondary-button"
-            onClick={handleLogout}
-            disabled={loggingOut}
-          >
-            {loggingOut ? "Logging out…" : "Log Out"}
-          </button>
-        </div>
-      </header>
+      <Header currentUser={currentUser} setLogoutError={setLogoutError} onLogout={onLogout}/>
 
       <main id="directory" className="page">
         {profilesError && (

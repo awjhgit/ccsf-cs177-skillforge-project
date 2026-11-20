@@ -64,66 +64,6 @@
   min-height: 100vh;
 }
 
-.skills-directory .topbar {
-  min-height: 70px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 0 5%;
-  background: #fff;
-  border-bottom: 1px solid var(--border);
-}
-
-.skills-directory .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #122b52;
-  font-size: 21px;
-  font-weight: 750;
-  white-space: nowrap;
-}
-
-.skills-directory .brand-icon {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 9px;
-  color: white;
-  background: var(--blue);
-  font-size: 24px;
-}
-
-.skills-directory .navigation {
-  display: flex;
-  align-items: center;
-  gap: 27px;
-  margin-left: auto;
-}
-
-.skills-directory .navigation a {
-  padding: 25px 0 22px;
-  color: #52647c;
-  font-size: 13px;
-  white-space: nowrap;
-  border-bottom: 3px solid transparent;
-}
-
-.skills-directory .navigation a.active {
-  color: var(--blue);
-  border-bottom-color: var(--blue);
-  font-weight: 650;
-}
-
-.skills-directory .account {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 13px;
-  white-space: nowrap;
-}
-
 .skills-directory .avatar {
   flex: 0 0 auto;
   display: grid;
@@ -135,11 +75,6 @@
   background: #e4efff;
   font-size: 14px;
   font-weight: 750;
-}
-
-.skills-directory .avatar.initials {
-  width: 34px;
-  height: 34px;
 }
 
 .skills-directory .page {
