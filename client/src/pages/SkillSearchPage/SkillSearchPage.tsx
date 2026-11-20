@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header"
 import { api, type DirectoryProfile } from "../../services/api";
 import type { User } from "../../types/user";
-import "./Directory.css";
+import "./SkillSearchPage.css";
 
 interface SkillsSearchPageProps {
   currentUser: User;
