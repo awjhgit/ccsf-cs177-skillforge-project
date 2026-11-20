@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Header from "../../components/Header/Header"
+import Header from "../../components/Header/Header";
+import ProfileView from "../../components/ProfileView/ProfileView";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { User } from "../../types/user";
 import "./SkillSearchPage.css";
@@ -110,18 +111,12 @@ export default function SkillSearchPage({
     null,
   );
 
-
   const [logoutError, setLogoutError] = useState("");
   const profileDialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
     if (selectedEmployee) profileDialog.current?.showModal();
   }, [selectedEmployee]);
-
-  function closeProfile() {
-    profileDialog.current?.close();
-    setSelectedEmployee(null);
-  }
 
   // Update one filter while preserving the others.
   function toggleFilter(
@@ -209,7 +204,11 @@ export default function SkillSearchPage({
 
   return (
     <div className="skills-directory">
-      <Header currentUser={currentUser} setLogoutError={setLogoutError} onLogout={onLogout}/>
+      <Header
+        currentUser={currentUser}
+        setLogoutError={setLogoutError}
+        onLogout={onLogout}
+      />
 
       <main id="directory" className="page">
         {profilesError && (
@@ -497,92 +496,11 @@ export default function SkillSearchPage({
       </main>
 
       {selectedEmployee && (
-        <dialog
-          ref={profileDialog}
-          className="profile-modal"
-          aria-labelledby="modal-title"
-          onCancel={(event) => {
-            event.preventDefault();
-            closeProfile();
-          }}
-          onClick={(event) => {
-            if (event.target !== event.currentTarget) return;
-            const bounds = event.currentTarget.getBoundingClientRect();
-            if (
-              event.clientX < bounds.left ||
-              event.clientX > bounds.right ||
-              event.clientY < bounds.top ||
-              event.clientY > bounds.bottom
-            )
-              closeProfile();
-          }}
-        >
-          <button
-            className="modal-close"
-            onClick={closeProfile}
-            aria-label="Close profile"
-          >
-            ×
-          </button>
-
-          <div className="modal-profile-header">
-            <div className="avatar large">
-              {selectedEmployee.name
-                .split(" ")
-                .map((part) => part[0])
-                .join("")}
-            </div>
-            <div>
-              <h2 id="modal-title">{selectedEmployee.name}</h2>
-              <p>{selectedEmployee.title}</p>
-              <span className="department-tag">
-                {selectedEmployee.department}
-              </span>
-            </div>
-          </div>
-
-          <h3>Skills and expertise</h3>
-          <div className="skill-tags">
-            {selectedEmployee.skills.map((skill) => (
-              <span className="skill-tag" key={skill}>
-                {skill}
-              </span>
-            ))}
-          </div>
-
-          <h3>Experience</h3>
-          <p>{selectedEmployee.description}</p>
-          <p>
-            <strong>{selectedEmployee.years} years</strong> of reported
-            experience.
-          </p>
-
-          <h3>Certifications</h3>
-          <p>
-            {selectedEmployee.certifications.join(", ") ||
-              "No certifications listed."}
-          </p>
-
-          <h3>External profiles</h3>
-          <div className="modal-links">
-            {selectedEmployee.links.map((link, index) => (
-              <a href={link.url} target="_blank" rel="noreferrer" key={index}>
-                {link.label} ↗
-              </a>
-            ))}
-          </div>
-
-          <button
-            className="primary-button modal-action"
-            onClick={() =>
-              window.alert(
-                "Connection requests will be implemented in the next phase.",
-              )
-            }
-          >
-            Request Connection
-          </button>
-        </dialog>
+        <ProfileView
+          profileDialog={profileDialog}
+          setSelectedEmployee={setSelectedEmployee}
+          selectedEmployee={selectedEmployee}
+        />
       )}
     </div>
   );
