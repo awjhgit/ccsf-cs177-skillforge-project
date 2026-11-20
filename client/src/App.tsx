@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import AdminPage from './pages/AdminPage';
+import Footer from './components/Footer/Footer';
 import RegisterPage from './pages/RegisterPage';
 import ProfileDashboard from './pages/ProfileDashboard';
 import ProfilePage from './pages/ProfilePage';
@@ -613,9 +614,7 @@ function SkillsDirectory({ currentUser, onLogout }: SkillsDirectoryProps) {
         </dialog>
       )}
 
-      <footer className="page-footer">
-        Skill Forge · Internal Skills Discovery Prototype
-      </footer>
+      <Footer />
     </div>
   );
 }
