@@ -1,4 +1,4 @@
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
+import ProfileCard from "./ProfileCard/ProfileCard";
 import type { DirectoryProfile } from "../../services/api";
 import "./SearchResults.css";
 
