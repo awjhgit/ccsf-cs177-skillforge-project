@@ -122,7 +122,7 @@
 }
 
 /* the following were also in SkillSearchPage */
-.profile-card .bt {
+.profile-card .secondard-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -135,12 +135,12 @@
   transition: background 0.15s ease;
 }
 
-.profile-card .bt {
+.profile-card .secondard-button {
   color: var(--blue);
   background: white;
   border-color: #b9ccec;
 }
 
-.profile-card .bt:hover {
+.profile-card .secondard-button:hover {
   background: #f0f6ff;
 }
