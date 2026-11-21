@@ -93,18 +93,7 @@
   line-height: 1.6;
 }
 
-.skills-directory .search-panel {
-  margin-bottom: 24px;
-  padding: 20px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
 
-.skills-directory .search-form {
-  display: flex;
-  gap: 12px;
-}
 
 .skills-directory .search-input {
   display: flex;
@@ -138,28 +127,6 @@
   box-shadow: 0 0 0 3px #e5efff;
 }
 
-.skills-directory .primary-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 40px;
-  padding: 10px 17px;
-  border: 1px solid transparent;
-  border-radius: 7px;
-  font-size: 13px;
-  font-weight: 650;
-  transition: background 0.15s ease;
-}
-
-.skills-directory .primary-button {
-  color: white;
-  background: var(--blue);
-}
-
-.skills-directory .primary-button:hover {
-  background: var(--blue-dark);
-}
-
 .skills-directory .secondary-button {
   color: var(--blue);
   background: white;
@@ -168,41 +135,6 @@
 
 .skills-directory .secondary-button:hover {
   background: #f0f6ff;
-}
-
-.skills-directory .search-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  margin-top: 18px;
-}
-
-.skills-directory .search-meta p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.skills-directory .search-meta strong {
-  color: #203755;
-}
-
-.skills-directory .sort-control {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.skills-directory .sort-control select {
-  min-height: 38px;
-  padding: 0 28px 0 10px;
-  border: 1px solid var(--border);
-  border-radius: 7px;
-  color: #203755;
-  background: white;
 }
 
 .skills-directory .directory-layout {
@@ -273,21 +205,8 @@
     padding: 25px 16px 35px;
   }
 
-  .skills-directory .search-panel {
-    padding: 14px;
-  }
-
-  .skills-directory .search-form {
-    flex-direction: column;
-  }
-
   .skills-directory .search-input input {
     font-size: 12px;
-  }
-
-  .skills-directory .search-meta {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .skills-directory .directory-layout {
