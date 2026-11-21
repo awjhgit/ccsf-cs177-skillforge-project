@@ -1,0 +1,109 @@
+.filters-panel {
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.filters-panel {
+    padding: 16px;
+  }
+
+ .filter-heading h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.filter-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.filters-panel .text-button:hover {
+  text-decoration: underline;
+}
+
+.filters-panel .text-button {
+  padding: 3px 0;
+  border: 0;
+  color: var(--blue);
+  background: transparent;
+  font-size: 12px;
+}
+
+.filter-group {
+  display: grid;
+  gap: 13px;
+  min-width: 0;
+  margin: 0;
+  padding: 18px 0;
+  border: 0;
+  border-top: 1px solid #edf0f5;
+}
+
+.filter-group legend {
+  float: left;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 0;
+  color: #203755;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.skill-filter-search {
+  display: grid;
+  gap: 6px;
+}
+
+.skill-filter-search input {
+  width: 100%;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.skill-filter-hint {
+  margin: 8px 0;
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+.skill-filter-options {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.filter-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  color: #53657e;
+  font-size: 13px;
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.filter-option input {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  margin: 1px 0 0;
+  accent-color: var(--blue);
+}
+
+.clear-experience {
+  justify-self: start;
+}
+
+.filter-note {
+  margin: 10px 0 0;
+  color: #75849a;
+  font-size: 11px;
+  line-height: 1.5;
+}
