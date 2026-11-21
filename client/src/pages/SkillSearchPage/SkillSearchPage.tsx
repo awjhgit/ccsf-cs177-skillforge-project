@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import ProfileView from "../../components/ProfileView/ProfileView";
 import FilterPanel from "./FilterPanel/FilterPanel";
-import SearchResults from "./SearchResults";
+import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
 import type { User } from "../../types/user";

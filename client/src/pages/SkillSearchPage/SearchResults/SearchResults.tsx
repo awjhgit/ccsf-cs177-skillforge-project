@@ -1,5 +1,5 @@
-import ProfileCard from "./ProfileCard/ProfileCard";
-import type { DirectoryProfile } from "../../services/api";
+import ProfileCard from "../ProfileCard/ProfileCard";
+import type { DirectoryProfile } from "../../../services/api";
 import "./SearchResults.css";
 
 interface SearchResultsProps {
