@@ -63,8 +63,6 @@
   min-height: 100vh;
 }
 
-
-
 .skills-directory .page {
   max-width: 1440px;
   margin: 0 auto;
@@ -140,8 +138,7 @@
   box-shadow: 0 0 0 3px #e5efff;
 }
 
-.skills-directory .primary-button,
-.skills-directory .secondary-button {
+.skills-directory .primary-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -215,36 +212,6 @@
   gap: 22px;
 }
 
-.skills-directory .results-area {
-  min-width: 0;
-}
-
-.skills-directory .profile-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-
-.skills-directory .empty-state {
-  padding: 60px 20px;
-  text-align: center;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.skills-directory .empty-state h2 {
-  margin: 0 0 10px;
-  font-size: 20px;
-}
-
-.skills-directory .empty-state p {
-  margin: 0 0 20px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
 .skills-directory .page-footer {
   padding: 20px;
   color: #77869a;
@@ -263,10 +230,6 @@
   background: rgb(16 35 61 / 50%);
 }
 
-
-
-
-
 .skills-directory .modal-profile-header {
   display: flex;
   align-items: center;
@@ -274,7 +237,6 @@
   margin-bottom: 28px;
   padding-right: 25px;
 }
-
 
 @media (max-width: 1050px) {
   .skills-directory .topbar {
@@ -304,10 +266,6 @@
     grid-template-columns: 205px minmax(0, 1fr);
     gap: 14px;
   }
-
-  .skills-directory .profile-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 650px) {
@@ -333,12 +291,6 @@
   }
 
   .skills-directory .directory-layout {
-    grid-template-columns: 1fr;
-  }
-
-
-
-  .skills-directory .profile-grid {
     grid-template-columns: 1fr;
   }
 

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import ProfileView from "../../components/ProfileView/ProfileView";
-import ProfileCard from "../../components/ProfileCard/ProfileCard";
 import FilterPanel from "../../components/FilterPanel/FilterPanel";
+import SearchResults from "./SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { User } from "../../types/user";
 import type { Filters } from "../../components/FilterPanel/Filters";
@@ -239,38 +239,15 @@ export default function SkillSearchPage({
             setSkillQuery={setSkillQuery}
           />
 
-          <section className="results-area" aria-label="Search results">
-            {profilesLoading ? (
-              <p role="status">Loading profiles…</p>
-            ) : profilesError ? null : results.length > 0 ? (
-              <div className="profile-grid">
-                {results.map((employee) => (
-                  <ProfileCard
-                    employee={employee}
-                    setSelectedEmployee={setSelectedEmployee}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="empty-state">
-                <h2>No matching profiles found</h2>
-                <p>
-                  Try another skill or remove some filters to see more
-                  colleagues.
-                </p>
-                <button
-                  className="secondary-button"
-                  onClick={() => {
-                    setQuery("");
-                    setSubmittedQuery("");
-                    clearFilters();
-                  }}
-                >
-                  Clear search and filters
-                </button>
-              </div>
-            )}
-          </section>
+          <SearchResults
+            profilesLoading={profilesLoading}
+            profilesError={profilesError}
+            results={results}
+            setSelectedEmployee={setSelectedEmployee}
+            setQuery={setQuery}
+            setSubmittedQuery={setSubmittedQuery}
+            clearFilters={clearFilters}
+          />
         </div>
       </main>
 
