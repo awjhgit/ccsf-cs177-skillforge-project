@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header/Header"; 
 import ProfileView from "../../components/ProfileView/ProfileView";
 import FilterPanel from "./FilterPanel/FilterPanel";
 import SearchPanel from "./SearchPanel/SearchPanel";
@@ -7,6 +7,7 @@ import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
 import type { User } from "../../types/user";
+import { calculateScore } from "./utils/calculateScore";
 import "./SkillSearchPage.css";
 
 interface SkillsSearchPageProps {
@@ -39,26 +40,6 @@ export default function SkillSearchPage({
       cancelled = true;
     };
   }, []);
-
-  // Calculate a simple, explainable relevance score.
-  function calculateScore(employee: Employee, term: string) {
-    if (!term) return 0;
-
-    const skills = employee.skills.map((s) => s.toLowerCase());
-    const title = employee.title.toLowerCase();
-    const description = employee.description.toLowerCase();
-
-    let score = 0;
-
-    if (skills.some((skill) => skill === term)) score += 100;
-    else if (skills.some((skill) => skill.includes(term))) score += 70;
-
-    if (title.includes(term)) score += 40;
-    if (description.includes(term)) score += 20;
-
-    // Experience is a tie-breaker, not proof of proficiency.
-    return score + Math.min(employee.years, 10) * 0.1;
-  }
 
   type Employee = DirectoryProfile;
 
