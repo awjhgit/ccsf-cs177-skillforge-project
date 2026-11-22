@@ -1,7 +1,19 @@
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "../FilterPanel/Filters";
 
-export function filterProfiles(
+export function filterAndSortProfiles(
+  submittedQuery: string,
+  directory: DirectoryProfile[],
+  filters: Filters,
+  skillKey: (skill: string) => string,
+  sortBy: string,
+) {
+  const term = submittedQuery.trim().toLowerCase();
+  const filtered = filterProfiles(directory, term, filters, skillKey);
+  return sortProfiles(filtered, term, sortBy);
+}
+
+function filterProfiles(
   directory: DirectoryProfile[],
   term: string,
   filters: Filters,
@@ -55,4 +67,37 @@ export function filterProfiles(
       matchesExperience
     );
   });
+}
+
+function sortProfiles(
+  filtered: DirectoryProfile[],
+  term: string,
+  sortBy: string,
+) {
+  return filtered.sort((a, b) => {
+    if (sortBy === "experience") return b.years - a.years;
+    if (sortBy === "alphabetical") return a.name.localeCompare(b.name);
+
+    return calculateScore(b, term) - calculateScore(a, term);
+  });
+}
+
+// Calculate a simple, explainable relevance score.
+function calculateScore(employee: DirectoryProfile, term: string) {
+  if (!term) return 0;
+
+  const skills = employee.skills.map((s) => s.toLowerCase());
+  const title = employee.title.toLowerCase();
+  const description = employee.description.toLowerCase();
+
+  let score = 0;
+
+  if (skills.some((skill) => skill === term)) score += 100;
+  else if (skills.some((skill) => skill.includes(term))) score += 70;
+
+  if (title.includes(term)) score += 40;
+  if (description.includes(term)) score += 20;
+
+  // Experience is a tie-breaker, not proof of proficiency.
+  return score + Math.min(employee.years, 10) * 0.1;
 }

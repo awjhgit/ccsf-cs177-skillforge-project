@@ -7,8 +7,7 @@ import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
 import type { User } from "../../types/user";
-import { calculateScore } from "./utils/calculateScore";
-import {filterProfiles} from "./utils/filterProfiles";
+import {filterAndSortProfiles} from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
 
 interface SkillsSearchPageProps {
@@ -75,16 +74,7 @@ export default function SkillSearchPage({
   }
 
   const results = useMemo(() => {
-    const term = submittedQuery.trim().toLowerCase();
-
-    const filtered = filterProfiles(directory, term, filters, skillKey);
-
-    return filtered.sort((a, b) => {
-      if (sortBy === "experience") return b.years - a.years;
-      if (sortBy === "alphabetical") return a.name.localeCompare(b.name);
-
-      return calculateScore(b, term) - calculateScore(a, term);
-    });
+    return filterAndSortProfiles(submittedQuery, directory, filters, skillKey, sortBy);
   }, [directory, submittedQuery, filters, sortBy]);
 
   return (
