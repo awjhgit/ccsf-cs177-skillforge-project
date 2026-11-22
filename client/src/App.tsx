@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProfileDashboard from "./pages/ProfileDashboard";
-import ProfilePage from "./pages/ProfilePage";
+import ProfileEditPage from "./pages/ProfileEditPage";
 import SkillSearchPage from "./pages/SkillSearchPage/SkillSearchPage";
 import Footer from "./components/Footer/Footer";
 import "./styles/App.css";
@@ -97,7 +97,7 @@ export default function App() {
           path="/profile/edit"
           element={
             <ProtectedRoute user={currentUser}>
-              <ProfilePage
+              <ProfileEditPage
                 user={currentUser!}
                 onSessionExpired={expireSession}
               />

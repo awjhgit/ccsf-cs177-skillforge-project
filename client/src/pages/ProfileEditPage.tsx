@@ -4,7 +4,7 @@ import { api, ApiError, type ProfileDetails } from '../services/api';
 import type { User } from '../types/user';
 import '../styles/ProfilePage.css';
 
-interface ProfilePageProps {
+interface ProfileEditPageProps {
   user: User;
   onSessionExpired: () => void;
 }
@@ -12,7 +12,7 @@ interface ProfilePageProps {
 const parseList = (value: FormDataEntryValue | null) =>
   String(value ?? '').split(',').map((item) => item.trim()).filter(Boolean);
 
-export default function ProfilePage({ user, onSessionExpired }: ProfilePageProps) {
+export default function ProfileEditPage({ user, onSessionExpired }: ProfileEditPageProps) {
   const navigate = useNavigate();
   const [profile, setProfile] = useState<ProfileDetails | null>(null);
   const [trustedHosts, setTrustedHosts] = useState<string[]>([]);
