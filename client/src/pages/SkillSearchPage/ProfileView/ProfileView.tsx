@@ -1,4 +1,4 @@
-import { type DirectoryProfile } from "../../services/api";
+import { type DirectoryProfile } from "../../../services/api";
 import "./ProfileView.css"
 
 interface ProfileViewProps {

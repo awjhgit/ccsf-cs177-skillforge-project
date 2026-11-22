@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import PageHeader from "./PageHeader/PageHeader";
-import ProfileView from "../../components/ProfileView/ProfileView";
+import ProfileView from "./ProfileView/ProfileView";
 import FilterPanel from "./FilterPanel/FilterPanel";
 import SearchPanel from "./SearchPanel/SearchPanel";
 import SearchResults from "./SearchResults/SearchResults";
