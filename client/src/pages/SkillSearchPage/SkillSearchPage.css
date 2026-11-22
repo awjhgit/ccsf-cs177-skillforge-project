@@ -69,32 +69,6 @@
   padding: 32px 5% 50px;
 }
 
-.skills-directory .page-heading {
-  margin-bottom: 26px;
-}
-
-.skills-directory .eyebrow {
-  margin: 0 0 8px;
-  color: var(--blue);
-  font-size: 11px;
-  font-weight: 750;
-  letter-spacing: 1.5px;
-}
-
-.skills-directory .page-heading h1 {
-  margin: 0 0 8px;
-  font-size: clamp(27px, 3vw, 36px);
-  letter-spacing: -1px;
-}
-
-.skills-directory .page-heading>p:last-child {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-
-
 .skills-directory .search-input {
   display: flex;
   align-items: center;

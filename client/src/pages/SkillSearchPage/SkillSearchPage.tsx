@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Header from "../../components/Header/Header"; 
+import Header from "../../components/Header/Header";
+import PageHeader from "./PageHeader/PageHeader";
 import ProfileView from "../../components/ProfileView/ProfileView";
 import FilterPanel from "./FilterPanel/FilterPanel";
 import SearchPanel from "./SearchPanel/SearchPanel";
@@ -7,7 +8,7 @@ import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
 import type { User } from "../../types/user";
-import {filterAndSortProfiles} from "./utils/filterAndSortProfiles";
+import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
 
 interface SkillsSearchPageProps {
@@ -74,7 +75,13 @@ export default function SkillSearchPage({
   }
 
   const results = useMemo(() => {
-    return filterAndSortProfiles(submittedQuery, directory, filters, skillKey, sortBy);
+    return filterAndSortProfiles(
+      submittedQuery,
+      directory,
+      filters,
+      skillKey,
+      sortBy,
+    );
   }, [directory, submittedQuery, filters, sortBy]);
 
   return (
@@ -92,14 +99,8 @@ export default function SkillSearchPage({
           </p>
         )}
         {logoutError && <p role="alert">{logoutError}</p>}
-        <section className="page-heading">
-          <p className="eyebrow">PEOPLE & SKILL LIBRARY</p>
-          <h1>Skills Directory</h1>
-          <p>
-            Find colleagues with the right skills and experience to collaborate,
-            learn, and grow.
-          </p>
-        </section>
+        
+        <PageHeader />
 
         <SearchPanel
           query={query}
