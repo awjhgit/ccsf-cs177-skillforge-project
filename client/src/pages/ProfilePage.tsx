@@ -4,12 +4,12 @@ import { api, ApiError, type ProfileOverview } from '../services/api';
 import type { User } from '../types/user';
 import '../styles/ProfilePage.css';
 
-interface ProfileDashboardProps {
+interface ProfilePageProps {
   user: User;
   onSessionExpired: () => void;
 }
 
-export default function ProfileDashboard({ user, onSessionExpired }: ProfileDashboardProps) {
+export default function ProfilePage({ user, onSessionExpired }: ProfilePageProps) {
   const [overview, setOverview] = useState<ProfileOverview | null>(null);
   const [error, setError] = useState('');
   const [attempt, setAttempt] = useState(0);
