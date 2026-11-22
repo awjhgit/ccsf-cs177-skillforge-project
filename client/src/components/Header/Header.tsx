@@ -20,7 +20,7 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { label: "Directory", to: "/search", requiresAuth: true },
+  { label: "Search Profiles", to: "/search", requiresAuth: true },
   { label: "My Profile", to: "/profile", requiresAuth: true },
   {
     label: "Account Management",
@@ -67,7 +67,7 @@ export default function Header({
   
   return (
     <header className="topbar">
-      <Link className="brand" to="/search" aria-label="Skill Forge home">
+      <Link className="brand" to="/" aria-label="Skill Forge home">
         <span className="brand-icon" aria-hidden="true">
           ✳
         </span>
