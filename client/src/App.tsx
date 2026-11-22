@@ -62,7 +62,7 @@ export default function App() {
           path="/login"
           element={
             isActive ? (
-              <Navigate to="/directory" replace />
+              <Navigate to="/search" replace />
             ) : (
               <LoginPage onLogin={setCurrentUser} />
             )
@@ -71,11 +71,11 @@ export default function App() {
         <Route
           path="/register"
           element={
-            isActive ? <Navigate to="/directory" replace /> : <RegisterPage />
+            isActive ? <Navigate to="/search" replace /> : <RegisterPage />
           }
         />
         <Route
-          path="/directory"
+          path="/search"
           element={
             <ProtectedRoute user={currentUser}>
               <SkillSearchPage logoutError={logoutError} />
@@ -114,7 +114,7 @@ export default function App() {
         />
         <Route
           path="*"
-          element={<Navigate to={isActive ? "/directory" : "/login"} replace />}
+          element={<Navigate to={isActive ? "/search" : "/login"} replace />}
         />
       </Routes>
       <Footer />

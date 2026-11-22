@@ -20,7 +20,7 @@ export default function ProtectedRoute({
   }
 
   if (requiredRole && user.role !== requiredRole) {
-    return <Navigate to="/directory" replace />;
+    return <Navigate to="/search" replace />;
   }
 
   return <>{children}</>;

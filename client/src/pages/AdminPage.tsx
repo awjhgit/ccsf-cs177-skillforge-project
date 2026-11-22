@@ -69,7 +69,7 @@ export default function AdminPage({ onLogout, onSessionExpired }: AdminPageProps
         <h2>Skill Forge</h2>
         <h3>Admin Controls</h3>
         <nav aria-label="Admin navigation">
-          <Link to="/directory">Skills Directory</Link>
+          <Link to="/search">Skills Directory</Link>
           <button className="nav-active">Account Management</button>
           <button disabled>User Profile Management (Coming Soon)</button>
           <button disabled>Defined Skills Management (Coming Soon)</button>

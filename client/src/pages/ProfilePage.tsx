@@ -31,7 +31,7 @@ export default function ProfilePage({ user, onSessionExpired }: ProfilePageProps
   return (
     <div className="skills-directory">
       <main className="page profile-dashboard">
-        <Link to="/directory">← Skills Directory</Link>
+        <Link to="/search">← Skills Directory</Link>
         <header className="page-heading dashboard-heading">
           <div>
             <h1>{user.name}</h1>
