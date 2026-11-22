@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import PageHeader from "./PageHeader/PageHeader";
-import ProfileView from "./ProfileView/ProfileView";
+import ProfileModal from "./ProfileModal/ProfileModal";
 import FilterPanel from "./FilterPanel/FilterPanel";
 import SearchPanel from "./SearchPanel/SearchPanel";
 import SearchResults from "./SearchResults/SearchResults";
@@ -136,7 +136,7 @@ export default function SkillSearchPage({
       </main>
 
       {selectedEmployee && (
-        <ProfileView
+        <ProfileModal
           profileDialog={profileDialog}
           setSelectedEmployee={setSelectedEmployee}
           selectedEmployee={selectedEmployee}

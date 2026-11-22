@@ -1,17 +1,17 @@
 import { type DirectoryProfile } from "../../../services/api";
-import "./ProfileView.css"
+import "./ProfileModal.css"
 
-interface ProfileViewProps {
+interface ProfileModalProps {
   profileDialog: React.RefObject<HTMLDialogElement | null>;
   setSelectedEmployee: (value: React.SetStateAction<DirectoryProfile|null>) => void;
   selectedEmployee: DirectoryProfile;
 }
 
-export default function ProfileView({
+export default function ProfileModal({
   profileDialog,
   setSelectedEmployee,
   selectedEmployee,
-}: ProfileViewProps) {
+}: ProfileModalProps) {
   function closeProfile() {
     profileDialog.current?.close();
     setSelectedEmployee(null);
