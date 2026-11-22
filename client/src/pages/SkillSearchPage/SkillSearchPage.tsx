@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import Header from "../../components/Header/Header";
 import PageHeader from "./PageHeader/PageHeader";
 import ProfileModal from "./ProfileModal/ProfileModal";
 import FilterPanel from "./FilterPanel/FilterPanel";
@@ -7,18 +6,15 @@ import SearchPanel from "./SearchPanel/SearchPanel";
 import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
-import type { User } from "../../types/user";
 import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
 
 interface SkillsSearchPageProps {
-  currentUser: User;
-  onLogout: () => Promise<void>;
+  logoutError: string;
 }
 
 export default function SkillSearchPage({
-  currentUser,
-  onLogout,
+  logoutError,
 }: SkillsSearchPageProps) {
   const [directory, setDirectory] = useState<DirectoryProfile[]>([]);
   const [profilesLoading, setProfilesLoading] = useState(true);
@@ -62,7 +58,6 @@ export default function SkillSearchPage({
     null,
   );
 
-  const [logoutError, setLogoutError] = useState("");
   const profileDialog = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
@@ -86,12 +81,6 @@ export default function SkillSearchPage({
 
   return (
     <div className="skills-directory">
-      <Header
-        currentUser={currentUser}
-        setLogoutError={setLogoutError}
-        onLogout={onLogout}
-      />
-
       <main id="directory" className="page">
         {profilesError && (
           <p role="alert">
@@ -99,7 +88,7 @@ export default function SkillSearchPage({
           </p>
         )}
         {logoutError && <p role="alert">{logoutError}</p>}
-        
+
         <PageHeader />
 
         <SearchPanel

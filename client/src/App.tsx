@@ -1,6 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import { useSession } from "./hooks/useSession";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Header from "./components/Header/Header";
+import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -20,6 +23,8 @@ export default function App() {
     expireSession,
     logout,
   } = useSession();
+
+  const [logoutError, setLogoutError] = useState("");
 
   if (loading) {
     return (
@@ -46,7 +51,13 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <Header
+        currentUser={currentUser}
+        setLogoutError={setLogoutError}
+        onLogout={logout}
+      />
       <Routes>
+        <Route path="/" element={<HomePage />} />
         <Route
           path="/login"
           element={
@@ -67,7 +78,7 @@ export default function App() {
           path="/directory"
           element={
             <ProtectedRoute user={currentUser}>
-              <SkillSearchPage currentUser={currentUser!} onLogout={logout} />
+              <SkillSearchPage logoutError={logoutError} />
             </ProtectedRoute>
           }
         />

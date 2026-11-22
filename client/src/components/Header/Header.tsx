@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 import { getInitials } from "../../utils/user";
 import type { User } from "../../types/user";
 import "./Header.css";
@@ -62,16 +62,9 @@ export default function Header({
       setLoggingOut(false);
     }
   }
-  const navigate = useNavigate();
 
-  const goToLogin = () => {
-    navigate("/login");
-  };
-
-  const goToRegister = () => {
-    navigate("/register");
-  };
-
+  const { goToLogin, goToRegister } = useRedirect();
+  
   return (
     <header className="topbar">
       <Link className="brand" to="/directory" aria-label="Skill Forge home">
@@ -113,10 +106,18 @@ export default function Header({
           </>
         ) : (
           <>
-            <button type="button" className="secondary-button" onClick={goToRegister}>
+            <button
+              type="button"
+              className="secondary-button"
+              onClick={goToRegister}
+            >
               Register
             </button>
-            <button type="button" className="primary-button" onClick={goToLogin}>
+            <button
+              type="button"
+              className="primary-button"
+              onClick={goToLogin}
+            >
               Log In
             </button>
           </>

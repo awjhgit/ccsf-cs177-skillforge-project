@@ -14,7 +14,8 @@
   --border: #dce4ef;
   --muted: #62738b;
 
-  min-height: 70px;
+  box-sizing: border-box;
+  height: 70px;
   display: flex;
   align-items: center;
   gap: 32px;

@@ -3,4 +3,6 @@
   color: #77869a;
   text-align: center;
   font-size: 12px;
+  box-sizing: border-box;
+  height: 50px;
 }
