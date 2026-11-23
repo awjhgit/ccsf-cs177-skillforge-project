@@ -11,6 +11,14 @@ export function useRedirect() {
   const goToRegister = useCallback(() => {
     navigate("/register");
   }, [navigate]);
+  
+  const goToSearch = useCallback(() => {
+    navigate("/search");
+  }, [navigate]);
 
-  return { goToLogin, goToRegister };
+  const goToProfile = useCallback(() => {
+    navigate("/profile");
+  }, [navigate]);
+
+  return { goToLogin, goToRegister, goToSearch, goToProfile};
 }

@@ -57,7 +57,7 @@ export default function App() {
         onLogout={logout}
       />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage currentUser={currentUser} />} />
         <Route
           path="/login"
           element={

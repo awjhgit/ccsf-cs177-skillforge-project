@@ -1,8 +1,15 @@
 import { useRedirect } from "../../hooks/useRedirect";
+import type { User } from "../../types/user";
 import "./HomePage.css";
 
-export default function HomePage() {
-  const { goToLogin, goToRegister } = useRedirect();
+interface HomePageProps {
+  currentUser: User | null;
+}
+
+export default function HomePage({ currentUser }: HomePageProps) {
+  const { goToLogin, goToRegister, goToSearch, goToProfile } = useRedirect();
+
+  console.log("currentUser = " + currentUser);
 
   return (
     <div className="home-page">
@@ -11,11 +18,17 @@ export default function HomePage() {
         work done!
       </div>
       <div className="home-buttons">
-        <button className="button login-button" onClick={goToLogin}>
-          Login
+        <button
+          className="button blue-button"
+          onClick={currentUser ? goToSearch : goToLogin}
+        >
+          {currentUser ? "Search for Profiles" : "Log In"}
         </button>
-        <button className="button register-button" onClick={goToRegister}>
-          Register
+        <button
+          className="button white-button"
+          onClick={currentUser ? goToProfile : goToRegister}
+        >
+          {currentUser ? "View My Profile" : "Register"}
         </button>
       </div>
       <div className="subhead">

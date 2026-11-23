@@ -52,20 +52,20 @@
     border-style: solid;
 }
 
-.login-button{
+.blue-button{
     background-color: #1769e0;
     border-color: #104da8;
     color: white;
 }
-.login-button:hover{
+.blue-button:hover{
     background-color: #104da8;
 }
 
-.register-button{
+.white-button{
     background-color: white;
     border-color: #1769e0;
     color: #1769e0;
 }
-.register-button:hover{
+.white-button:hover{
     background-color:#eff4fd;
 }
