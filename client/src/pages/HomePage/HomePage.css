@@ -1,23 +1,23 @@
-.home-page{
+.home-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 30px;
     overflow: auto;
     --header-height: 70px;
-    --footer-height: 50px;
+    --footer-height: 70px;
     height: calc(100dvh - var(--header-height) - var(--footer-height));
-    min-height:450px;
+    min-height: 450px;
 }
+
 .page-hero {
-    
     color: #62738b;
     font-size: 30px;
     text-align: center;
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     width: 600px;
     padding: 20px;
-    margin-top: 30px;
+    margin-top: 80px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -34,38 +34,40 @@
     flex: 1;
 }
 
-.home-buttons{
-    display:flex;
+.home-buttons {
+    display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.button{
+.button {
     font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     width: 400px;
     height: 50px;
     font-size: 20px;
-    margin-right:auto;
-    margin-left:auto;
+    margin-right: auto;
+    margin-left: auto;
     border-radius: 30px;
-    border:1px;
+    border: 1px;
     border-style: solid;
 }
 
-.blue-button{
+.blue-button {
     background-color: #1769e0;
     border-color: #104da8;
     color: white;
 }
-.blue-button:hover{
+
+.blue-button:hover {
     background-color: #104da8;
 }
 
-.white-button{
+.white-button {
     background-color: white;
     border-color: #1769e0;
     color: #1769e0;
 }
-.white-button:hover{
-    background-color:#eff4fd;
+
+.white-button:hover {
+    background-color: #eff4fd;
 }
