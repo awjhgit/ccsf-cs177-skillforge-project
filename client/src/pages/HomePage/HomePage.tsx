@@ -9,8 +9,6 @@ interface HomePageProps {
 export default function HomePage({ currentUser }: HomePageProps) {
   const { goToLogin, goToRegister, goToSearch, goToProfile } = useRedirect();
 
-  console.log("currentUser = " + currentUser);
-
   return (
     <div className="home-page">
       <div className="page-hero">
