@@ -1,15 +1,15 @@
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "../FilterPanel/Filters";
+import { toSkillKey } from "./skillKey";
 
 export function filterAndSortProfiles(
   submittedQuery: string,
   directory: DirectoryProfile[],
   filters: Filters,
-  skillKey: (skill: string) => string,
   sortBy: string,
 ) {
   const term = submittedQuery.trim().toLowerCase();
-  const filtered = filterProfiles(directory, term, filters, skillKey);
+  const filtered = filterProfiles(directory, term, filters);
   return sortProfiles(filtered, term, sortBy);
 }
 
@@ -17,7 +17,6 @@ function filterProfiles(
   directory: DirectoryProfile[],
   term: string,
   filters: Filters,
-  skillKey: (skill: string) => string,
 ) {
   return directory.filter((employee) => {
     const searchableText = [
@@ -33,7 +32,7 @@ function filterProfiles(
 
     const matchesQuery = !term || searchableText.includes(term);
 
-    const employeeSkills = employee.skills.map(skillKey);
+    const employeeSkills = employee.skills.map(toSkillKey);
     const matchesSkills = filters.skills.every((skill) =>
       employeeSkills.includes(skill),
     );

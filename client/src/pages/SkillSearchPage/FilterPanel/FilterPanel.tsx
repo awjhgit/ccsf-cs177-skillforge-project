@@ -1,33 +1,32 @@
 import { useMemo } from "react";
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "./Filters";
+import { toSkillKey } from "../utils/skillKey";
 import "./FilterPanel.css";
 
 interface FilterPanelProps {
   skillQuery: string;
-  directory: DirectoryProfile[];
-  skillKey: (skill: string) => string;
-  setFilters: (value: React.SetStateAction<Filters>) => void;
-  clearFilters: () => void;
-  filters: Filters;
   setSkillQuery: React.Dispatch<React.SetStateAction<string>>;
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>
+  clearFilters: () => void;
+  directory: DirectoryProfile[];
 }
 
 export default function FilterPanel({
   skillQuery,
-  directory,
-  skillKey,
+  setSkillQuery,
+  filters,
   setFilters,
   clearFilters,
-  filters,
-  setSkillQuery,
+  directory,
 }: FilterPanelProps) {
 
   const skillOptions = useMemo(() => {
     const labels = new Map<string, string>();
     for (const employee of directory) {
       for (const skill of employee.skills) {
-        const key = skillKey(skill);
+        const key = toSkillKey(skill);
         if (!labels.has(key)) labels.set(key, skill.trim());
       }
     }
@@ -37,7 +36,7 @@ export default function FilterPanel({
   }, [directory]);
 
   const visibleSkills = skillOptions.filter(([key]) =>
-    key.includes(skillKey(skillQuery)),
+    key.includes(toSkillKey(skillQuery)),
   );
 
   // Update one filter while preserving the others.

@@ -40,8 +40,6 @@ export default function SkillSearchPage({
 
   type Employee = DirectoryProfile;
 
-  const skillKey = (skill: string) => skill.trim().toLowerCase();
-
   const emptyFilters: Filters = {
     skills: [],
     departments: [],
@@ -74,7 +72,6 @@ export default function SkillSearchPage({
       submittedQuery,
       directory,
       filters,
-      skillKey,
       sortBy,
     );
   }, [directory, submittedQuery, filters, sortBy]);
@@ -94,12 +91,11 @@ export default function SkillSearchPage({
         <div className="body-container">
           <FilterPanel
             skillQuery={skillQuery}
-            directory={directory}
-            skillKey={skillKey}
+            setSkillQuery={setSkillQuery}
+            filters={filters}
             setFilters={setFilters}
             clearFilters={clearFilters}
-            filters={filters}
-            setSkillQuery={setSkillQuery}
+            directory={directory}
           />
 
           <div className="search-results-container">
