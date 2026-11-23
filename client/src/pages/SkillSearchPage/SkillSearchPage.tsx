@@ -91,17 +91,7 @@ export default function SkillSearchPage({
 
         <PageHeader />
 
-        <SearchPanel
-          query={query}
-          submittedQuery={submittedQuery}
-          setSubmittedQuery={setSubmittedQuery}
-          setQuery={setQuery}
-          results={results}
-          setSortBy={setSortBy}
-          sortBy={sortBy}
-        />
-
-        <div className="directory-layout">
+        <div className="body-container">
           <FilterPanel
             skillQuery={skillQuery}
             directory={directory}
@@ -112,15 +102,27 @@ export default function SkillSearchPage({
             setSkillQuery={setSkillQuery}
           />
 
-          <SearchResults
-            profilesLoading={profilesLoading}
-            profilesError={profilesError}
-            results={results}
-            setSelectedEmployee={setSelectedEmployee}
-            setQuery={setQuery}
-            setSubmittedQuery={setSubmittedQuery}
-            clearFilters={clearFilters}
-          />
+          <div className="search-results-container">
+            <SearchPanel
+              query={query}
+              submittedQuery={submittedQuery}
+              setSubmittedQuery={setSubmittedQuery}
+              setQuery={setQuery}
+              results={results}
+              setSortBy={setSortBy}
+              sortBy={sortBy}
+            />
+
+            <SearchResults
+              profilesLoading={profilesLoading}
+              profilesError={profilesError}
+              results={results}
+              setSelectedEmployee={setSelectedEmployee}
+              setQuery={setQuery}
+              setSubmittedQuery={setSubmittedQuery}
+              clearFilters={clearFilters}
+            />
+          </div>
         </div>
       </main>
 

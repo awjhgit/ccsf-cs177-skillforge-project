@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import type { DirectoryProfile } from "../../services/api";
+import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "./Filters";
 import "./FilterPanel.css";
 
@@ -22,20 +22,6 @@ export default function FilterPanel({
   filters,
   setSkillQuery,
 }: FilterPanelProps) {
-  const departments = [
-    ...new Set([
-      "Engineering",
-      "IT",
-      "Product",
-      "Sales",
-      "Marketing",
-      ...directory.map((entry) => entry.department),
-    ]),
-  ];
-
-  const certifications = [
-    ...new Set(directory.flatMap((entry) => entry.certifications)),
-  ];
 
   const skillOptions = useMemo(() => {
     const labels = new Map<string, string>();
@@ -118,70 +104,6 @@ export default function FilterPanel({
             Clear skills
           </button>
         )}
-      </fieldset>
-
-      <fieldset className="filter-group">
-        <legend>Department</legend>
-        {departments.map((department) => (
-          <label className="filter-option" key={department}>
-            <input
-              type="checkbox"
-              checked={filters.departments.includes(department)}
-              onChange={() => toggleFilter("departments", department)}
-            />
-            <span>{department}</span>
-          </label>
-        ))}
-      </fieldset>
-
-      <fieldset className="filter-group">
-        <legend>Experience</legend>
-        {[
-          ["0-2", "0–2 years"],
-          ["3-5", "3–5 years"],
-          ["6-10", "6–10 years"],
-          ["10+", "10+ years"],
-        ].map(([value, label]) => (
-          <label className="filter-option" key={value}>
-            <input
-              type="radio"
-              name="experience"
-              checked={filters.experience === value}
-              onChange={() =>
-                setFilters((current) => ({
-                  ...current,
-                  experience: value,
-                }))
-              }
-            />
-            <span>{label}</span>
-          </label>
-        ))}
-        <button
-          className="text-button clear-experience"
-          onClick={() =>
-            setFilters((current) => ({
-              ...current,
-              experience: "",
-            }))
-          }
-        >
-          Clear experience
-        </button>
-      </fieldset>
-
-      <fieldset className="filter-group">
-        <legend>Certifications</legend>
-        {certifications.map((certification) => (
-          <label className="filter-option" key={certification}>
-            <input
-              type="checkbox"
-              checked={filters.certifications.includes(certification)}
-              onChange={() => toggleFilter("certifications", certification)}
-            />
-            <span>{certification}</span>
-          </label>
-        ))}
       </fieldset>
 
       <p className="filter-note">
