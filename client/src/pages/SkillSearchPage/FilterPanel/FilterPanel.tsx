@@ -1,6 +1,6 @@
 import "./FilterPanel.css";
-import type {SortOption} from "../../../features/user/index";
-
+import type { SortOption } from "../../../features/user/index";
+import SkillTag from "../../../components/SkillTag/SkillTag";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: "relevance", label: "Relevance" },
@@ -9,33 +9,25 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 ];
 
 interface FilterPanelProps {
-  submittedQuery: string;
+  skillQueryList: string[];
   resultCount: number;
-  setSortBy: React.Dispatch<React.SetStateAction<SortOption>>
+  setSortBy: React.Dispatch<React.SetStateAction<SortOption>>;
   sortBy: SortOption;
 }
 
 export default function FilterPanel({
-  submittedQuery,
+  skillQueryList,
   resultCount,
   setSortBy,
-  sortBy
+  sortBy,
 }: FilterPanelProps) {
-
-  const profileOrProfilesLabel = (resultCount === 1) ? "profile" : "profiles";
-
+  const profileOrProfilesLabel = resultCount === 1 ? "Profile" : "Profiles";
 
   return (
     <section className="filter-panel" aria-label="Employee search">
       <div className="search-meta">
         <p>
-          Showing <strong>{resultCount}</strong> {profileOrProfilesLabel} 
-          {submittedQuery && (
-            <strong>
-              {" "}
-              for <strong>“{submittedQuery}”</strong>
-            </strong>
-          )}
+          Matching {profileOrProfilesLabel} : <strong>{resultCount}</strong>
         </p>
 
         <label className="sort-control">
@@ -45,12 +37,17 @@ export default function FilterPanel({
             onChange={(event) => setSortBy(event.target.value as SortOption)}
           >
             {SORT_OPTIONS.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>  
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
             ))}
           </select>
         </label>
+      </div>
+      <div className="skill-query-list">
+        {(skillQueryList.length > 0) && skillQueryList.map((skill) => (
+          <SkillTag skillName={skill} key={skill}/>
+        ))}
       </div>
     </section>
   );

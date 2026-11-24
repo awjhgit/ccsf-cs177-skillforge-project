@@ -104,7 +104,7 @@ export default function SkillSearchPage({
 
           <div className="search-results-container">
             <FilterPanel
-              submittedQuery={submittedQuery}
+              skillQueryList={submittedQuery?submittedQuery.split(" "):[]}
               resultCount={results.length}
               setSortBy={setSortBy}
               sortBy={sortBy}

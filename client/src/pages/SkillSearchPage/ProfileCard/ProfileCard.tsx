@@ -1,13 +1,18 @@
-import type { DirectoryProfile } from "../../services/api";
+import type { DirectoryProfile } from "../../../services/api";
+import SkillTag from "../../../components/SkillTag/SkillTag";
 import "./ProfileCard.css";
 
 interface ProfileCardProps {
-    employee: DirectoryProfile;
-    setSelectedEmployee: React.Dispatch<React.SetStateAction<DirectoryProfile | null>>;
+  employee: DirectoryProfile;
+  setSelectedEmployee: React.Dispatch<
+    React.SetStateAction<DirectoryProfile | null>
+  >;
 }
 
-
-export default function ProfileCard({employee, setSelectedEmployee}: ProfileCardProps) {
+export default function ProfileCard({
+  employee,
+  setSelectedEmployee,
+}: ProfileCardProps) {
   return (
     <article className="profile-card" key={employee.id}>
       <div className="profile-card-header">
@@ -26,9 +31,7 @@ export default function ProfileCard({employee, setSelectedEmployee}: ProfileCard
 
       <div className="skill-tags">
         {employee.skills.map((skill) => (
-          <span className="skill-tag" key={skill}>
-            {skill}
-          </span>
+          <SkillTag skillName={skill} key={skill} />
         ))}
       </div>
 

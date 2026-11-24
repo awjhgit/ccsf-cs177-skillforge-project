@@ -51,3 +51,10 @@
     color: #203755;
     background: white;
 }
+
+.skill-query-list{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}

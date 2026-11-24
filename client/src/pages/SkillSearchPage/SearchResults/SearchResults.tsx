@@ -62,6 +62,7 @@ export default function SearchResults({
       <div className="profile-grid">
         {results.map((employee) => (
           <ProfileCard
+            key={employee.id}
             employee={employee}
             setSelectedEmployee={setSelectedEmployee}
           />
