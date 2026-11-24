@@ -1,11 +1,11 @@
 import "./FilterPanel.css";
-import type { SortOption } from "../../../features/user/index";
 import SkillTag from "../../../components/SkillTag/SkillTag";
+import { type SortOption } from "../../../features/user/index";
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
   { value: "relevance", label: "Relevance" },
   { value: "experience", label: "Years of experience" },
-  { value: "alphabetical", label: "Name (A–Z)" },
+  { value: "name", label: "Name (A–Z)" },
 ];
 
 interface FilterPanelProps {
@@ -45,9 +45,10 @@ export default function FilterPanel({
         </label>
       </div>
       <div className="skill-query-list">
-        {(skillQueryList.length > 0) && skillQueryList.map((skill) => (
-          <SkillTag skillName={skill} key={skill}/>
-        ))}
+        {skillQueryList.length > 0 &&
+          skillQueryList.map((skill) => (
+            <SkillTag skillName={skill} key={skill} />
+          ))}
       </div>
     </section>
   );

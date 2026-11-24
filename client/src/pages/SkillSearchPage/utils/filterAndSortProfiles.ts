@@ -77,7 +77,7 @@ function sortProfilesInPlace(
 ) {
   return filtered.sort((a, b) => {
     if (sortBy === "experience") return b.years - a.years;
-    if (sortBy === "alphabetical") return a.name.localeCompare(b.name);
+    if (sortBy === "name") return a.name.localeCompare(b.name);
 
     return calculateScore(b, term) - calculateScore(a, term);
   });
