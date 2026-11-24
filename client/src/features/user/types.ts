@@ -10,3 +10,8 @@ export interface ProfileSort {
   option: SortOption;
   direction: SortDirection;
 }
+
+// For Filtering
+export interface ProfileFilters {
+  skills: string[];
+}
