@@ -2,9 +2,9 @@ import { useMemo } from "react";
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "./Filters";
 import { toSkillKey } from "../utils/skillKey";
-import "./FilterPanel.css";
+import "./SearchPanel.css";
 
-interface FilterPanelProps {
+interface SearchPanelProps {
   skillQuery: string;
   setSkillQuery: React.Dispatch<React.SetStateAction<string>>;
   filters: Filters;
@@ -16,7 +16,7 @@ interface FilterPanelProps {
   setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function FilterPanel({
+export default function SearchPanel({
   skillQuery,
   setSkillQuery,
   filters,
@@ -26,7 +26,7 @@ export default function FilterPanel({
   query,
   setSubmittedQuery,
   setQuery,
-}: FilterPanelProps) {
+}: SearchPanelProps) {
   const skillOptions = useMemo(() => {
     const labels = new Map<string, string>();
     for (const employee of directory) {

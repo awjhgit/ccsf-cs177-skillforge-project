@@ -1,5 +1,5 @@
 import type { DirectoryProfile } from "../../../services/api";
-import type { Filters } from "../FilterPanel/Filters";
+import type { Filters } from "../SearchPanel/Filters";
 import { toSkillKey } from "./skillKey";
 
 export function filterAndSortProfiles(

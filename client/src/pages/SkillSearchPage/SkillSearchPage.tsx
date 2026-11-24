@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import PageHeader from "./PageHeader/PageHeader";
 import ProfileModal from "./ProfileModal/ProfileModal";
-import FilterPanel from "./FilterPanel/FilterPanel";
+import SearchPanel from "./SearchPanel/SearchPanel";
 import EventualFilterPanel from "./EventualFilterPanel/EventualFilterPanel";
 import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
-import type { Filters } from "./FilterPanel/Filters";
+import type { Filters } from "./SearchPanel/Filters";
 import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
 
@@ -89,7 +89,7 @@ export default function SkillSearchPage({
         <PageHeader />
 
         <div className="body-container">
-          <FilterPanel
+          <SearchPanel
             skillQuery={skillQuery}
             setSkillQuery={setSkillQuery}
             filters={filters}
