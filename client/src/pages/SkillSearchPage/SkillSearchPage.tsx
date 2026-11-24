@@ -8,7 +8,7 @@ import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./SearchPanel/Filters";
 import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
-import type { SortOption } from "../../features/user-search";
+import type { SortOption } from "../../features/user";
 
 interface SkillsSearchPageProps {
   logoutError: string;

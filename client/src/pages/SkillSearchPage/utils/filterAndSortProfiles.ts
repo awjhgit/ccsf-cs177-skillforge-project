@@ -1,7 +1,7 @@
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "../SearchPanel/Filters";
 import { toSkillKey } from "./skillKey";
-import type { SortOption } from "../../../features/user-search";
+import type { SortOption } from "../../../features/user";
 
 // filters and sorts directory array in place
 export function filterAndSortProfiles(

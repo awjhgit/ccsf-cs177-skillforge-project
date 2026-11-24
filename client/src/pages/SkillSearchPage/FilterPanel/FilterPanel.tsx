@@ -1,5 +1,5 @@
 import "./FilterPanel.css";
-import type {SortOption} from "../../../features/user-search/index";
+import type {SortOption} from "../../../features/user/index";
 
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
