@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import PageHeader from "./PageHeader/PageHeader";
 import ProfileModal from "./ProfileModal/ProfileModal";
 import FilterPanel from "./FilterPanel/FilterPanel";
-import SearchPanel from "./SearchPanel/SearchPanel";
+import EventualFilterPanel from "./EventualFilterPanel/EventualFilterPanel";
 import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./FilterPanel/Filters";
@@ -96,14 +96,14 @@ export default function SkillSearchPage({
             setFilters={setFilters}
             clearFilters={clearFilters}
             directory={directory}
+            query={query}
+            setQuery={setQuery}
+            setSubmittedQuery={setSubmittedQuery}
           />
 
           <div className="search-results-container">
-            <SearchPanel
-              query={query}
+            <EventualFilterPanel
               submittedQuery={submittedQuery}
-              setSubmittedQuery={setSubmittedQuery}
-              setQuery={setQuery}
               results={results}
               setSortBy={setSortBy}
               sortBy={sortBy}

@@ -1,55 +1,22 @@
 import { type DirectoryProfile } from "../../../services/api";
-import "./SearchPanel.css";
+import "./EventualFilterPanel.css";
 
-interface SearchPanelProps {
-  query: string;
+interface EventualFilterPanelProps {
   submittedQuery: string;
-  setSubmittedQuery: React.Dispatch<React.SetStateAction<string>>;
-  setQuery: React.Dispatch<React.SetStateAction<string>>;
   results: DirectoryProfile[];
   setSortBy: React.Dispatch<React.SetStateAction<string>>
   sortBy: string;
 }
 
-export default function SearchPanel({
-  query,
+export default function EventualFilterPanel({
   submittedQuery,
-  setSubmittedQuery,
-  setQuery,
   results,
   setSortBy,
   sortBy
-
-}: SearchPanelProps) {
-
-  function search() {
-    setSubmittedQuery(query);
-  }
+}: EventualFilterPanelProps) {
 
   return (
-    <section className="search-panel" aria-label="Employee search">
-      <form
-        className="search-form"
-        onSubmit={(event) => {
-          event.preventDefault();
-          search();
-        }}
-      >
-        <label className="search-input">
-          <span aria-hidden="true">⌕</span>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder='Search skills or expertise (e.g., "Python", "cloud architecture")'
-            aria-label="Search skills or expertise"
-          />
-        </label>
-
-        <button className="primary-button" type="submit">
-          Search
-        </button>
-      </form>
-
+    <section className="filter-panel" aria-label="Employee search">
       <div className="search-meta">
         <p>
           Showing <strong>{results.length}</strong>{" "}

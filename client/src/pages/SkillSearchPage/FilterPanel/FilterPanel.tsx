@@ -8,9 +8,12 @@ interface FilterPanelProps {
   skillQuery: string;
   setSkillQuery: React.Dispatch<React.SetStateAction<string>>;
   filters: Filters;
-  setFilters: React.Dispatch<React.SetStateAction<Filters>>
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
   clearFilters: () => void;
   directory: DirectoryProfile[];
+  query: string;
+  setSubmittedQuery: React.Dispatch<React.SetStateAction<string>>;
+  setQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function FilterPanel({
@@ -20,8 +23,10 @@ export default function FilterPanel({
   setFilters,
   clearFilters,
   directory,
+  query,
+  setSubmittedQuery,
+  setQuery,
 }: FilterPanelProps) {
-
   const skillOptions = useMemo(() => {
     const labels = new Map<string, string>();
     for (const employee of directory) {
@@ -54,8 +59,37 @@ export default function FilterPanel({
     });
   }
 
+  function search() {
+    setSubmittedQuery(query);
+  }
+
   return (
-    <aside className="filters-panel">
+    <aside className="search-panel">
+      <form
+        className="search-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          search();
+        }}
+      >
+        <label className="search-input">
+          <span aria-hidden="true">⌕</span>
+          <input
+            className="search-input-field"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder='Search skills or expertise (e.g., "Python", "cloud architecture")'
+            aria-label="Search skills or expertise"
+          />
+        </label>
+
+        <button className="primary-button" type="submit">
+          Search
+        </button>
+      </form>
+
+      
+
       <div className="filter-heading">
         <h2>Filters</h2>
         <button className="text-button" onClick={clearFilters}>
