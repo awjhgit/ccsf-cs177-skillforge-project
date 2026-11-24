@@ -1,16 +1,18 @@
 import type { DirectoryProfile } from "../../../services/api";
 import type { Filters } from "../SearchPanel/Filters";
 import { toSkillKey } from "./skillKey";
+import type { SortOption } from "../../../features/user-search";
 
+// filters and sorts directory array in place
 export function filterAndSortProfiles(
   submittedQuery: string,
   directory: DirectoryProfile[],
   filters: Filters,
-  sortBy: string,
+  sortBy: SortOption,
 ) {
   const term = submittedQuery.trim().toLowerCase();
   const filtered = filterProfiles(directory, term, filters);
-  return sortProfiles(filtered, term, sortBy);
+  return sortProfilesInPlace(filtered, term, sortBy);
 }
 
 function filterProfiles(
@@ -68,10 +70,10 @@ function filterProfiles(
   });
 }
 
-function sortProfiles(
+function sortProfilesInPlace(
   filtered: DirectoryProfile[],
   term: string,
-  sortBy: string,
+  sortBy: SortOption,
 ) {
   return filtered.sort((a, b) => {
     if (sortBy === "experience") return b.years - a.years;

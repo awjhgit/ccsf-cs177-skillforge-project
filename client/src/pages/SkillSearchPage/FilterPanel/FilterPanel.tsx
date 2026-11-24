@@ -1,26 +1,35 @@
-import { type DirectoryProfile } from "../../../services/api";
 import "./FilterPanel.css";
+import type {SortOption} from "../../../features/user-search/index";
+
+
+const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "relevance", label: "Relevance" },
+  { value: "experience", label: "Years of experience" },
+  { value: "alphabetical", label: "Name (A–Z)" },
+];
 
 interface FilterPanelProps {
   submittedQuery: string;
-  results: DirectoryProfile[];
-  setSortBy: React.Dispatch<React.SetStateAction<string>>
-  sortBy: string;
+  resultCount: number;
+  setSortBy: React.Dispatch<React.SetStateAction<SortOption>>
+  sortBy: SortOption;
 }
 
 export default function FilterPanel({
   submittedQuery,
-  results,
+  resultCount,
   setSortBy,
   sortBy
 }: FilterPanelProps) {
+
+  const profileOrProfilesLabel = (resultCount === 1) ? "profile" : "profiles";
+
 
   return (
     <section className="filter-panel" aria-label="Employee search">
       <div className="search-meta">
         <p>
-          Showing <strong>{results.length}</strong>{" "}
-          {results.length === 1 ? "profile" : "profiles"}
+          Showing <strong>{resultCount}</strong> {profileOrProfilesLabel} 
           {submittedQuery && (
             <strong>
               {" "}
@@ -33,11 +42,13 @@ export default function FilterPanel({
           <span>Sort by</span>
           <select
             value={sortBy}
-            onChange={(event) => setSortBy(event.target.value)}
+            onChange={(event) => setSortBy(event.target.value as SortOption)}
           >
-            <option value="relevance">Relevance</option>
-            <option value="experience">Years of experience</option>
-            <option value="alphabetical">Name (A–Z)</option>
+            {SORT_OPTIONS.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>  
+            ))}
           </select>
         </label>
       </div>

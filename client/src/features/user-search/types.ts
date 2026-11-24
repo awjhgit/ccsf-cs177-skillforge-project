@@ -1,0 +1,1 @@
+export type SortOption = "relevance" | "experience" | "alphabetical";

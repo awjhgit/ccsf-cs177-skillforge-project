@@ -8,6 +8,7 @@ import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./SearchPanel/Filters";
 import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
+import type { SortOption } from "../../features/user-search";
 
 interface SkillsSearchPageProps {
   logoutError: string;
@@ -51,7 +52,7 @@ export default function SkillSearchPage({
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
   const [filters, setFilters] = useState<Filters>(emptyFilters);
-  const [sortBy, setSortBy] = useState("relevance");
+  const [sortBy, setSortBy] = useState("relevance" as SortOption);
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(
     null,
   );
@@ -104,7 +105,7 @@ export default function SkillSearchPage({
           <div className="search-results-container">
             <FilterPanel
               submittedQuery={submittedQuery}
-              results={results}
+              resultCount={results.length}
               setSortBy={setSortBy}
               sortBy={sortBy}
             />
