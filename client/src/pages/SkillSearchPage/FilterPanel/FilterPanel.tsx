@@ -1,19 +1,19 @@
 import { type DirectoryProfile } from "../../../services/api";
-import "./EventualFilterPanel.css";
+import "./FilterPanel.css";
 
-interface EventualFilterPanelProps {
+interface FilterPanelProps {
   submittedQuery: string;
   results: DirectoryProfile[];
   setSortBy: React.Dispatch<React.SetStateAction<string>>
   sortBy: string;
 }
 
-export default function EventualFilterPanel({
+export default function FilterPanel({
   submittedQuery,
   results,
   setSortBy,
   sortBy
-}: EventualFilterPanelProps) {
+}: FilterPanelProps) {
 
   return (
     <section className="filter-panel" aria-label="Employee search">
