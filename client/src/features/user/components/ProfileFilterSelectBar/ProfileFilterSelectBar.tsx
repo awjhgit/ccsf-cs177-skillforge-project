@@ -24,7 +24,10 @@ export default function ProfileFilterSelectBar({
 
           return (
             <button
-              className="filter-tag-button"
+              className={
+                "filter-tag-button " +
+                (isSelected ? "selected-filter-tag" : "not-selected-filter-tag")
+              }
               key={skill}
               type="button"
               aria-pressed={isSelected}
