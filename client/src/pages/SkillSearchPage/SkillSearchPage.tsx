@@ -1,14 +1,18 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import PageHeader from "./PageHeader/PageHeader";
-import ProfileModal from "./ProfileModal/ProfileModal";
 import SearchPanel from "./SearchPanel/SearchPanel";
-import FilterPanel from "./FilterPanel/FilterPanel";
-import SearchResults from "./SearchResults/SearchResults";
 import { api, type DirectoryProfile } from "../../services/api";
 import type { Filters } from "./SearchPanel/Filters";
 import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
 import "./SkillSearchPage.css";
-import type { SortOption } from "../../features/user";
+import {
+  type UserProfile,
+  type SortOption,
+  useFilteredAndSortedProfiles,
+  ProfileFilterAndSortPanel,
+  ProfileResultsPanel,
+} from "../../features/user/index";
+import { mockDirectoryProfiles } from "./mockProfiles";
 
 interface SkillsSearchPageProps {
   logoutError: string;
@@ -69,14 +73,45 @@ export default function SkillSearchPage({
   }
 
   const results = useMemo(() => {
-    return filterAndSortProfiles(
-      submittedQuery,
-      directory,
-      filters,
-      sortBy,
-    );
+    return filterAndSortProfiles(submittedQuery, directory, filters, sortBy);
   }, [directory, submittedQuery, filters, sortBy]);
 
+  // ===================================
+  // Mock Data Setup -- Start
+  // ===================================
+  const mockProfiles: UserProfile[] = mockDirectoryProfiles;
+
+  const mockAvailableSkills = useMemo(() => {
+    const skillSet = new Set<string>();
+    for (const profile of mockProfiles) {
+      for (const skill of profile.skills) {
+        skillSet.add(skill);
+      }
+    }
+    return Array.from(skillSet).sort((a, b) => a.localeCompare(b));
+  }, [mockProfiles]);
+
+  // Use hooks to access filter and sort results
+  const {
+    // from filter hook
+    filters: mockfilters,
+    toggleSkill: mocktoggleSkill,
+    resetFilters: mockresetFilters,
+    hasActiveFilters: mockhasActiveFilters,
+
+    // from sort hook
+    sort: mocksort,
+    setSortOption: mocksetSortOption,
+    setSortDirection: mocksetSortDirection,
+
+    // computed filtered & sorted results
+    resultCount: mockresultCount,
+    filteredAndSortedResults: mockfilteredAndSortedResults,
+  } = useFilteredAndSortedProfiles(mockProfiles);
+
+  // ===================================
+  // Mock Data Setup -- End
+  // ===================================
   return (
     <div className="skills-directory">
       <main id="directory" className="page">
@@ -103,33 +138,26 @@ export default function SkillSearchPage({
           />
 
           <div className="search-results-container">
-            <FilterPanel
-              skillQueryList={submittedQuery?submittedQuery.split(" "):[]}
-              resultCount={results.length}
-              setSortBy={setSortBy}
-              sortBy={sortBy}
+            <ProfileFilterAndSortPanel
+              availableSkills={mockAvailableSkills}
+              filters={mockfilters}
+              toggleSkill={mocktoggleSkill}
+              resetFilters={mockresetFilters}
+              hasActiveFilters={mockhasActiveFilters}
+              sort={mocksort}
+              setSortOption={mocksetSortOption}
+              setSortDirection={mocksetSortDirection}
+              resultCount={mockresultCount}
             />
 
-            <SearchResults
-              profilesLoading={profilesLoading}
-              profilesError={profilesError}
-              results={results}
-              setSelectedEmployee={setSelectedEmployee}
-              setQuery={setQuery}
-              setSubmittedQuery={setSubmittedQuery}
-              clearFilters={clearFilters}
+            <ProfileResultsPanel
+              results={mockfilteredAndSortedResults}
+              resultCount={mockresultCount}
+              onResetFilters={mockresetFilters}
             />
           </div>
         </div>
       </main>
-
-      {selectedEmployee && (
-        <ProfileModal
-          profileDialog={profileDialog}
-          setSelectedEmployee={setSelectedEmployee}
-          selectedEmployee={selectedEmployee}
-        />
-      )}
     </div>
   );
 }
