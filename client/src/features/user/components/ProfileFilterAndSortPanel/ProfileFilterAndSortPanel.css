@@ -1,0 +1,43 @@
+.filter-and-sort-panel {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    min-width: 300px;
+}
+
+@media (max-width: 650px) {
+    .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+.panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.result-summary p {
+    margin: 0;
+    color: #62738b;
+    font-size: 14px;
+}
+
+.result-summary strong {
+    color: #203755;
+}
+
+.sort-controls-container {
+    margin-bottom: 20px;
+}
+
+.skill-filter-options-container {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
