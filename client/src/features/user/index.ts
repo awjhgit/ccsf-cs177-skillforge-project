@@ -9,4 +9,4 @@ export { useFilteredAndSortedProfiles } from "./hooks/useFilteredAndSortedProfil
 
 // components
 export { default as ProfileFilterAndSortPanel } from "./components/ProfileFilterAndSortPanel/ProfileFilterAndSortPanel";
-export { default as UserProfileCard } from "./components/UserProfileCard/UserProfileCard";
+export { default as ProfileResultsPanel } from "./components/ProfileResultsPanel/ProfileResultsPanel";

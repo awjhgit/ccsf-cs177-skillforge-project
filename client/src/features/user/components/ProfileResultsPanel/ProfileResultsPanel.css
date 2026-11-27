@@ -1,0 +1,67 @@
+.profile-result-panel {
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 13px;
+    transition: background 0.15s ease;
+}
+
+.no-results-container {
+    padding: 60px 20px;
+    text-align: center;
+    background: white;
+    border: 1px solid #dce4ef;
+    border-radius: 12px;
+}
+
+.no-results-container h2 {
+    margin: 0 0 10px;
+    font-size: 20px;
+}
+
+.no-results-container p {
+    margin: 0 0 20px;
+    color: #62738b;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.profile-result-panel .reset-filters-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 10px 17px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 650;
+    transition: background 0.15s ease;
+    background: white;
+    color: #1769e0;
+    border-color: #b9ccec;
+}
+
+.reset-filters-button:hover {
+    background: #f0f6ff;
+}
+
+.profile-results-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+@media (max-width: 650px) {
+    .profile-results-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1050px) {
+    .profile-results-container {
+        grid-template-columns: 1fr;
+    }
+}
