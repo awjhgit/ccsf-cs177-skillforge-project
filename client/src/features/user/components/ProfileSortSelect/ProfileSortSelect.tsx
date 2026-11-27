@@ -1,4 +1,5 @@
 import type { ProfileSort, SortOption, SortDirection } from "../../types";
+import "./ProfileSortSelect.css";
 
 const SORT_FIELD_LABELS: Record<SortOption, string> = {
   name: "Name",
@@ -19,10 +20,10 @@ export default function ProfileSortSelect({
 }: ProfileSortSelectProps) {
   return (
     <>
-      <label className="sort-control">
+      <label className="profile-sort-control">
         <span>Sort by</span>
         <select
-        className="select-sort-option"
+          className="sort-option-menu"
           value={sort.option}
           onChange={(event) =>
             onSortOptionChange(event.target.value as SortOption)
@@ -36,13 +37,13 @@ export default function ProfileSortSelect({
         </select>
 
         <button
-        className="select-sort-direction"
+          className="direction-button"
           type="button"
           onClick={() =>
             onDirectionChange(sort.direction === "asc" ? "desc" : "asc")
           }
         >
-          {sort.direction === "asc" ? "▼" : "▲"}
+          {sort.direction === "asc" ? "🠛" : "🠙"}
         </button>
       </label>
     </>

@@ -1,0 +1,23 @@
+.profile-sort-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #62738b;
+    font-size: 14px;
+}
+
+.profile-sort-control .sort-option-menu {
+    min-height: 38px;
+    padding: 0 28px 0 10px;
+    border: 1px solid #dce4ef;
+    border-radius: 7px;
+    color: #203755;
+    background: white;
+}
+
+.profile-sort-control .direction-button {
+    background: none;
+    border: none;
+    color: #172b4d;
+    font-size: 20px;
+}
