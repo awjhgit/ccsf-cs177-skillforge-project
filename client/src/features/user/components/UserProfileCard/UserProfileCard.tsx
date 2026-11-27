@@ -1,4 +1,5 @@
-import { type UserProfile, getFullName, getNameInitials } from "../../index";
+import type { UserProfile } from "../../types";
+import { getFullName, getNameInitials } from "../../utils/userName";
 import "./UserProfileCard.css";
 
 interface UserProfileCardProps {

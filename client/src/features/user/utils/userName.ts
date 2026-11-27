@@ -1,4 +1,4 @@
-import type { Name } from "../index";
+import type { Name } from "../types";
 
 const DEFAULT_MIDDLE_NAME = "";
 
