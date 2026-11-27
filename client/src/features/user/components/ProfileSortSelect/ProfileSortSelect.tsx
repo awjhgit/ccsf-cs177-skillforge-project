@@ -8,7 +8,7 @@ const SORT_FIELD_LABELS: Record<SortOption, string> = {
 
 interface ProfileSortSelectProps {
   sort: ProfileSort;
-  onSortOptionChange: (field: SortOption) => void;
+  onSortOptionChange: (option: SortOption) => void;
   onDirectionChange: (direction: SortDirection) => void;
 }
 

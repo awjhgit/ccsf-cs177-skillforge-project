@@ -1,6 +1,16 @@
 import type { DirectoryProfile } from "../../services/api";
 
-export type UserProfile = DirectoryProfile;
+// export type UserProfile = DirectoryProfile;
+export type UserProfile = Omit<DirectoryProfile, "name"> & {
+  name: Name;
+};
+
+export type Name = {
+  first: string;
+  middle?: string;
+  last: string;
+};
+
 
 // For Sorting
 export type SortOption = "relevance" | "experience" | "name";

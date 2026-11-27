@@ -7,7 +7,7 @@ type ProfileComparator = (
 ) => number;
 
 const SORT_COMPARATORS: Record<SortOption, ProfileComparator> = {
-  name: (a, b) => a.name.localeCompare(b.name),
+  name: (a, b) => a.name.first.localeCompare(b.name.first),
   experience: (a, b) => b.years - a.years,
   relevance: (a, b, selectedSkills) => {
     const scoreDiff =
@@ -17,7 +17,7 @@ const SORT_COMPARATORS: Record<SortOption, ProfileComparator> = {
       return scoreDiff;
     }
 
-    return a.name.localeCompare(b.name);
+    return a.name.first.localeCompare(b.name.first);
   }
 };
 
