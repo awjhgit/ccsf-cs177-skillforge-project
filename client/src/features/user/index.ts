@@ -8,5 +8,6 @@ export type { SortOption } from "./types";
 export { useFilteredAndSortedProfiles } from "./hooks/useFilteredAndSortedProfiles";
 
 // components
+export { default as ProfileSearchPanel} from "./components/ProfileSearchPanel/ProfileSearchPanel";
 export { default as ProfileFilterAndSortPanel } from "./components/ProfileFilterAndSortPanel/ProfileFilterAndSortPanel";
 export { default as ProfileResultsPanel } from "./components/ProfileResultsPanel/ProfileResultsPanel";
