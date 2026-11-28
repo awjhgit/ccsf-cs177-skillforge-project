@@ -1,13 +1,10 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import PageHeader from "./PageHeader/PageHeader";
-import SearchPanel from "./SearchPanel/SearchPanel";
-import { api, type DirectoryProfile } from "../../services/api";
-import type { Filters } from "./SearchPanel/Filters";
-import { filterAndSortProfiles } from "./utils/filterAndSortProfiles";
+import { api } from "../../services/api";
 import "./SkillSearchPage.css";
 import {
   type UserProfile,
-  type SortOption,
+  ProfileSearchPanel,
   useFilteredAndSortedProfiles,
   ProfileFilterAndSortPanel,
   ProfileResultsPanel,
@@ -21,8 +18,6 @@ interface SkillsSearchPageProps {
 export default function SkillSearchPage({
   logoutError,
 }: SkillsSearchPageProps) {
-  const [directory, setDirectory] = useState<DirectoryProfile[]>([]);
-  const [profilesLoading, setProfilesLoading] = useState(true);
   const [profilesError, setProfilesError] = useState(false);
 
   useEffect(() => {
@@ -30,51 +25,22 @@ export default function SkillSearchPage({
     api
       .profiles()
       .then(({ profiles }) => {
-        if (!cancelled) setDirectory(profiles);
+        if (!cancelled) {
+          /*setDirectory(profiles);*/
+        }
       })
       .catch(() => {
         if (!cancelled) setProfilesError(true);
       })
       .finally(() => {
-        if (!cancelled) setProfilesLoading(false);
+        if (!cancelled) {
+          /*setProfilesLoading(false);*/
+        }
       });
     return () => {
       cancelled = true;
     };
   }, []);
-
-  type Employee = DirectoryProfile;
-
-  const emptyFilters: Filters = {
-    skills: [],
-    departments: [],
-    experience: "",
-    certifications: [],
-  };
-
-  const [skillQuery, setSkillQuery] = useState("");
-  const [query, setQuery] = useState("");
-  const [submittedQuery, setSubmittedQuery] = useState("");
-  const [filters, setFilters] = useState<Filters>(emptyFilters);
-  const [sortBy, setSortBy] = useState("relevance" as SortOption);
-  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(
-    null,
-  );
-
-  const profileDialog = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    if (selectedEmployee) profileDialog.current?.showModal();
-  }, [selectedEmployee]);
-
-  function clearFilters() {
-    setFilters(emptyFilters);
-    setSkillQuery("");
-  }
-
-  const results = useMemo(() => {
-    return filterAndSortProfiles(submittedQuery, directory, filters, sortBy);
-  }, [directory, submittedQuery, filters, sortBy]);
 
   // ===================================
   // Mock Data Setup -- Start
@@ -121,22 +87,11 @@ export default function SkillSearchPage({
           </p>
         )}
         {logoutError && <p role="alert">{logoutError}</p>}
-
         <PageHeader />
-
         <div className="body-container">
-          <SearchPanel
-            skillQuery={skillQuery}
-            setSkillQuery={setSkillQuery}
-            filters={filters}
-            setFilters={setFilters}
-            clearFilters={clearFilters}
-            directory={directory}
-            query={query}
-            setQuery={setQuery}
-            setSubmittedQuery={setSubmittedQuery}
-          />
-
+          <div className="search-panel-container">
+            <ProfileSearchPanel skillsDirectory={mockAvailableSkills} />
+          </div>
           <div className="search-results-container">
             <ProfileFilterAndSortPanel
               availableSkills={mockAvailableSkills}
@@ -149,7 +104,6 @@ export default function SkillSearchPage({
               setSortDirection={mocksetSortDirection}
               resultCount={mockresultCount}
             />
-
             <ProfileResultsPanel
               results={mockfilteredAndSortedResults}
               resultCount={mockresultCount}
